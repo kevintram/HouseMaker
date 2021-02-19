@@ -5,4 +5,15 @@ project(HouseMaker)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(HouseMaker src/HouseMaker.cpp)
+set(SOURCES 
+    src/HouseMaker.cpp
+    src/menus/Menu.cpp
+    src/navigation/MenuNavController.cpp
+)
+
+add_executable(HouseMaker ${SOURCES})
+
+target_include_directories(HouseMaker 
+    PRIVATE 
+        ${PROJECT_SOURCE_DIR}/src
+)
