@@ -1,5 +1,11 @@
 #include "navigation/NavController.h"
 
+NavController& NavController::getInstance() {
+    static NavController instance; // guaranteed to be destroyed and instantiated on first use
+
+    return instance;
+}
+
 NavController::NavController() {
     menuBackStack = stack<Menu*>();
 }

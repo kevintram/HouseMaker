@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-    NavController navController;
+    NavController& navController = NavController::getInstance();
     StartMenu startMenu = StartMenu();
     navController.navigate(startMenu);
 
