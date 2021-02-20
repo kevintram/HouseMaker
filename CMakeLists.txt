@@ -8,7 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(SOURCES 
     src/HouseMaker.cpp
     src/menus/Menu.cpp
-    src/navigation/MenuNavController.cpp
+    src/navigation/NavController.cpp
+    src/menus/StartMenu.cpp
 )
 
 add_executable(HouseMaker ${SOURCES})

@@ -1,8 +1,9 @@
 #include "menus/Menu.h"
+#include <iostream>
+using namespace std;
 
 Menu::Menu(bool isPopBackStackInclusive) {
     this->isPopBackStackInclusive = isPopBackStackInclusive;
-    navController = MenuNavController::getInstance();
 }
 
 bool Menu::getIsPopBackStackInclusive() const {

@@ -1,13 +1,17 @@
 #include <iostream>
-#include "menus/Menu.h"
-#include "navigation/MenuNavController.h"
+#include <vector>
+#include <string>
+#include "navigation/NavController.h"
+#include "menus/StartMenu.h"
 
 using namespace std;
 
 int main() {
-    cout << "Hello world" << endl;
-    MenuNavController* navController = MenuNavController::getInstance();
-    MenuNavController* navController2 = MenuNavController::getInstance();
-    cout << navController << endl;
-    cout << navController2 << endl;
+    vector<string> options;
+    options.push_back("HELLO");
+    options.push_back("BOOOOP");
+    options.push_back("COCOOO");
+    
+    StartMenu startMenu;
+    startMenu.print();
 }

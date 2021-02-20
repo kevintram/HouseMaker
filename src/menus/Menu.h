@@ -2,16 +2,15 @@
 
 #include <string>
 #include <vector>
-#include "navigation/MenuNavController.h"
 
 using namespace std;
 
 class Menu {
     public: 
-        Menu(bool popBackStackInclusive = false);
+        Menu(bool isPopBackStackInclusive = false);
         bool getIsPopBackStackInclusive() const;
-        virtual void chooseOption(int option);
+        virtual void choose(int option) = 0;
+        virtual void print() = 0;
     private: 
-        MenuNavController* navController;
         bool isPopBackStackInclusive;
 };
