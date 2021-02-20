@@ -7,11 +7,20 @@
 using namespace std;
 
 int main() {
-    vector<string> options;
-    options.push_back("HELLO");
-    options.push_back("BOOOOP");
-    options.push_back("COCOOO");
-    
-    StartMenu startMenu;
-    startMenu.print();
+    NavController navController;
+    StartMenu startMenu = StartMenu();
+    navController.navigate(startMenu);
+
+    while (!navController.backStackIsEmpty()) {
+        Menu& menu = navController.getCurrentMenu();
+        menu.print();
+
+        int response;
+        cin >> response;
+        menu.choose(response);
+
+        cout << endl;
+    }
+
+    return 0;
 }
