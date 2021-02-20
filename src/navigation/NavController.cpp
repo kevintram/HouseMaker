@@ -15,3 +15,7 @@ Menu& NavController::getCurrentMenu() {
 void NavController::popBackStack() {
     menuBackStack.pop();
 }
+
+bool NavController::backStackIsEmpty() {
+    return menuBackStack.empty();
+}

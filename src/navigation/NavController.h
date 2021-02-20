@@ -8,6 +8,7 @@ class NavController {
         void navigate(Menu& menu);
         void popBackStack();
         Menu& getCurrentMenu();
+        bool backStackIsEmpty();
         NavController();
     private: 
         stack<Menu*> menuBackStack;
