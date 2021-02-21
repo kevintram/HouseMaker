@@ -9,7 +9,9 @@ set(SOURCES
     src/HouseMaker.cpp
     src/menus/Menu.cpp
     src/navigation/NavController.cpp
+
     src/menus/StartMenu.cpp
+    src/menus/StyleMenu.cpp
 )
 
 add_executable(HouseMaker ${SOURCES})

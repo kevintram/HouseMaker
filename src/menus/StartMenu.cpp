@@ -1,4 +1,7 @@
-#include "StartMenu.h"
+#include "menus/StartMenu.h"
+#include "menus/StyleMenu.h"
+#include "navigation/NavController.h"
+#include <memory>
 #include <iostream>
 
 StartMenu::StartMenu(bool isPopBackStackInclusive) : Menu(isPopBackStackInclusive) {
@@ -14,5 +17,10 @@ void StartMenu::print() {
 }
 
 void StartMenu::choose(int option) {
-    
+    if (option == 1) {
+        shared_ptr<StyleMenu> styleMenu(new StyleMenu());
+        NavController::getInstance().navigate(styleMenu);
+    } else {
+        NavController::getInstance().popBackStack();
+    }
 }
