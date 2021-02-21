@@ -17,3 +17,7 @@ void House::print() {
 void House::addBathroom(const Bathroom& bathroom) {
     bathrooms.push_back(bathroom);
 }
+
+void House::setKitchen(const Kitchen& kitchen) {
+    this->kitchen = kitchen;
+}

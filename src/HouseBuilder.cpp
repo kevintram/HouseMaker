@@ -29,3 +29,8 @@ HouseBuilder& HouseBuilder::addBathroom(const Bathroom& bathroom) {
     house->addBathroom(bathroom);
     return *this;
 }
+
+HouseBuilder& HouseBuilder::setKitchen(const Kitchen& kitchen) {
+    house->setKitchen(kitchen);
+    return *this;
+}

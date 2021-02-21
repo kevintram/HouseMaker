@@ -14,7 +14,8 @@ void chooseHouseStyle();
 void buildHouse(FurnitureFactory& furnitureFactory);
 void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory);
 
-void editBathroom(Bathroom& bathroom, FurnitureFactory& FurnitureFactory);
+void editBathroom(Bathroom& bathroom);
+void editKitchen(Kitchen& kitchen);
 
 shared_ptr<FurnitureFactory> chooseStyle();
 
@@ -95,7 +96,8 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
 void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory) {
     while (true) {
         cout << "Pick one bruh" << endl;
-        cout <<  "1. Bathroom" << endl;
+        cout << "1. Bathroom" << endl;
+        cout << "2. Kitchen" <<endl;
 
         int response;
         cin >> response;
@@ -109,16 +111,28 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
             bathroom.setSink(furnitureFactory.createSink());
             bathroom.setToilet(furnitureFactory.createToilet());
 
-            editBathroom(bathroom, furnitureFactory);
+            editBathroom(bathroom);
 
             houseBuilder.addBathroom(bathroom);
+
+            break;
+        } else if (response == 2) {
+            Kitchen kitchen;
+
+            kitchen.setCounter(furnitureFactory.createCounter());
+            kitchen.setOven(furnitureFactory.createOven());
+            kitchen.setStove(furnitureFactory.createStove());
+
+            editKitchen(kitchen);
+
+            houseBuilder.setKitchen(kitchen);
 
             break;
         }
     }
 }
 
-void editBathroom(Bathroom& bathroom, FurnitureFactory& FurnitureFactory) {
+void editBathroom(Bathroom& bathroom) {
     while (true) {
         cout << "Bathroom:" << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
@@ -138,6 +152,36 @@ void editBathroom(Bathroom& bathroom, FurnitureFactory& FurnitureFactory) {
             bathroom.setShower(chooseStyle()->createShower());
         } else if (response == 3) {
             bathroom.setSink(chooseStyle()->createSink());
+        } else if (response == 4) {
+            break;
+        }
+    }
+}
+
+
+void editKitchen(Kitchen& kitchen) {
+    while (true) {
+        cout << "Kitchen:" << endl;
+        cout << "Select one to change or finish if it's all good: " << endl;
+        cout << "1. " << kitchen.getStove()->getName() << endl;
+        cout << "2. " << kitchen.getOven()->getName() << endl;
+        cout << "3. " << kitchen.getCounter()->getName() << endl;
+        cout << "4. Finish" << endl;
+
+        int response;
+        cin >> response;
+
+        cout << endl;
+        
+        if (response == 1) {
+            cout << "Stove: " << endl;
+            kitchen.setStove(chooseStyle()->createStove());
+        } else if (response == 2) {
+            cout << "Oven: " << endl;
+            kitchen.setOven(chooseStyle()->createOven());
+        } else if (response == 3) {
+            cout << "Coutner: " << endl;
+            kitchen.setCounter(chooseStyle()->createCounter());
         } else if (response == 4) {
             break;
         }

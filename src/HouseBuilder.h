@@ -2,6 +2,7 @@
 
 #include "House.h"
 #include "amenities/Bathroom.h"
+#include "amenities/Kitchen.h"
 
 class HouseBuilder {
     public:
@@ -13,6 +14,7 @@ class HouseBuilder {
         HouseBuilder& reset();
 
         HouseBuilder& addBathroom(const Bathroom& bathroom);
+        HouseBuilder& setKitchen(const Kitchen& kitchen);
 
         House& build();
     private: 
