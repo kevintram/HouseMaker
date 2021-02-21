@@ -180,7 +180,7 @@ void editKitchen(Kitchen& kitchen) {
             cout << "Oven: " << endl;
             kitchen.setOven(chooseStyle()->createOven());
         } else if (response == 3) {
-            cout << "Coutner: " << endl;
+            cout << "Counter: " << endl;
             kitchen.setCounter(chooseStyle()->createCounter());
         } else if (response == 4) {
             break;
