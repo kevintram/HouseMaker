@@ -1,4 +1,5 @@
 #include "navigation/NavController.h"
+#include <utility>
 
 NavController& NavController::getInstance() {
     static NavController instance; // guaranteed to be destroyed and instantiated on first use
@@ -7,11 +8,11 @@ NavController& NavController::getInstance() {
 }
 
 NavController::NavController() {
-    menuBackStack = stack<Menu*>();
+    menuBackStack = stack<shared_ptr<Menu>>();
 }
 
-void NavController::navigate(Menu& menu) {
-    menuBackStack.push(&menu);
+void NavController::navigate(const shared_ptr<Menu>& menu) {
+    menuBackStack.push(move(menu));
 }
 
 Menu& NavController::getCurrentMenu() {

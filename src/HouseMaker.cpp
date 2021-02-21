@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <memory>
 #include "navigation/NavController.h"
 #include "menus/StartMenu.h"
 
@@ -8,7 +9,7 @@ using namespace std;
 
 int main() {
     NavController& navController = NavController::getInstance();
-    StartMenu startMenu = StartMenu();
+    shared_ptr<StartMenu> startMenu(new StartMenu);
     navController.navigate(startMenu);
 
     while (!navController.backStackIsEmpty()) {
