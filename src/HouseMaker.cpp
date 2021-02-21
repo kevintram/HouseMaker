@@ -8,6 +8,8 @@
 using namespace std;
 
 int main() {
+    cout << "Welcome to the house builder!" << endl << endl;
+
     NavController& navController = NavController::getInstance();
     shared_ptr<StartMenu> startMenu(new StartMenu);
     navController.navigate(startMenu);
