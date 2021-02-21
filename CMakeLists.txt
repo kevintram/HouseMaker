@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(SOURCES 
     src/HouseMaker.cpp
     src/House.cpp
+    src/HouseBuilder.cpp
     src/menus/Menu.cpp
     src/navigation/NavController.cpp
 
