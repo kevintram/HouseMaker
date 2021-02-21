@@ -1,4 +1,7 @@
 #include "menus/StyleMenu.h"
+#include "menus/BuildHouseMenu.h"
+#include "navigation/NavController.h"
+#include "memory"
 #include <iostream>
 
 StyleMenu::StyleMenu(bool isPopBackStackInclusive) : Menu(isPopBackStackInclusive) {
@@ -15,5 +18,6 @@ void StyleMenu::print() {
 }
 
 void StyleMenu::choose(int option) {
-    
+    shared_ptr<BuildHouseMenu> buildHouseMenu(new BuildHouseMenu());
+    NavController::getInstance().navigate(buildHouseMenu);
 }

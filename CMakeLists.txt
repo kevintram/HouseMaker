@@ -12,6 +12,7 @@ set(SOURCES
 
     src/menus/StartMenu.cpp
     src/menus/StyleMenu.cpp
+    src/menus/BuildHouseMenu.cpp
 )
 
 add_executable(HouseMaker ${SOURCES})
