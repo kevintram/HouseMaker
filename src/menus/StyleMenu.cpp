@@ -20,10 +20,10 @@ void StyleMenu::print() {
 }
 
 void StyleMenu::choose(int option) {
-    FurnitureFactory* furnitureFactory = nullptr;
+    shared_ptr<FurnitureFactory> furnitureFactory;
 
     if (option == 2) {
-        furnitureFactory = new ArtDecoFurnitureFactory();
+        furnitureFactory = make_shared<ArtDecoFurnitureFactory>();
     }
 
     shared_ptr<BuildHouseMenu> buildHouseMenu(new BuildHouseMenu(furnitureFactory));

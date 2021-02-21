@@ -1,7 +1,7 @@
 #include "menus/BuildHouseMenu.h"
 #include <iostream>
 
-BuildHouseMenu::BuildHouseMenu(FurnitureFactory* furnitureFactory, bool isPopBackStackInclusive) : Menu(isPopBackStackInclusive) {
+BuildHouseMenu::BuildHouseMenu(shared_ptr<FurnitureFactory> furnitureFactory, bool isPopBackStackInclusive) : Menu(isPopBackStackInclusive) {
     this->furnitureFactory = furnitureFactory;
 
     options = vector<string>();
