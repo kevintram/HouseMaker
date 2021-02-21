@@ -6,6 +6,11 @@
 
 class ArtDecoFurnitureFactory : public FurnitureFactory {
     public:
-        ArtDecoBookshelf* createBookshelf();
-        ArtDecoCloset* createCloset();
+        inline ArtDecoBookshelf* createBookshelf() {
+            return new ArtDecoBookshelf();
+        }
+        
+        inline ArtDecoCloset* createCloset() {
+            return new ArtDecoCloset();
+        }
 };

@@ -3,6 +3,7 @@
 #include "navigation/NavController.h"
 #include "furniturefactories/FurnitureFactory.h"
 #include "furniturefactories/ArtDecoFurnitureFactory.h"
+#include "furniturefactories/ModernFurnitureFactory.h"
 #include "memory"
 #include <iostream>
 
@@ -22,7 +23,9 @@ void StyleMenu::print() {
 void StyleMenu::choose(int option) {
     shared_ptr<FurnitureFactory> furnitureFactory;
 
-    if (option == 2) {
+    if (option == 1) {
+        furnitureFactory = make_shared<ModernFurnitureFactory>();
+    } else if (option == 2) {
         furnitureFactory = make_shared<ArtDecoFurnitureFactory>();
     }
 
