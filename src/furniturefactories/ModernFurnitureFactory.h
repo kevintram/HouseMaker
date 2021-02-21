@@ -1,8 +1,8 @@
 #pragma once 
 
 #include "furniturefactories/FurnitureFactory.h"
-#include "furniture/modernfurniture/ModernBookshelf.h"
-#include "furniture/modernfurniture/ModernCloset.h"
+#include "furniture/Bookshelf.h"
+#include "furniture/Closet.h"
 
 class ModernFurnitureFactory : public FurnitureFactory {
     public: 
