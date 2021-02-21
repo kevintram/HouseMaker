@@ -21,3 +21,13 @@ class Closet {
         }
 
 };
+
+class ArtDecoCloset : public Closet {
+    public: 
+        inline ArtDecoCloset(string name = "Art Deco Closet") : Closet(name) {}
+};
+
+class ModernCloset : public Closet {
+    public: 
+        inline ModernCloset(string name = "Modern Closet") : Closet(name) {}
+};

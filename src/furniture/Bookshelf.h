@@ -21,3 +21,13 @@ class Bookshelf {
             return name;
         }
 };
+
+class ArtDecoBookshelf : public Bookshelf {
+    public:
+        inline ArtDecoBookshelf(string name = "Art Deco Bookshelf"): Bookshelf(name) {}
+};
+
+class ModernBookshelf : public Bookshelf {
+    public:
+        inline ModernBookshelf(string name = "Modern Bookshelf") : Bookshelf(name) {}
+};
