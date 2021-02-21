@@ -107,9 +107,9 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
         if (response == 1) {
             Bathroom bathroom;
 
-            bathroom.setShower(furnitureFactory.createShower());
-            bathroom.setSink(furnitureFactory.createSink());
-            bathroom.setToilet(furnitureFactory.createToilet());
+            bathroom.shower = furnitureFactory.createShower();
+            bathroom.sink = furnitureFactory.createSink();
+            bathroom.toilet = furnitureFactory.createToilet();
 
             editBathroom(bathroom);
 
@@ -119,9 +119,9 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
         } else if (response == 2) {
             Kitchen kitchen;
 
-            kitchen.setCounter(furnitureFactory.createCounter());
-            kitchen.setOven(furnitureFactory.createOven());
-            kitchen.setStove(furnitureFactory.createStove());
+            kitchen.counter = furnitureFactory.createCounter();
+            kitchen.oven = furnitureFactory.createOven();
+            kitchen.stove = furnitureFactory.createStove();
 
             editKitchen(kitchen);
 
@@ -136,9 +136,9 @@ void editBathroom(Bathroom& bathroom) {
     while (true) {
         cout << "Bathroom:" << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
-        cout << "1. " << bathroom.getToilet()->getName() << endl;
-        cout << "2. " << bathroom.getShower()->getName() << endl;
-        cout << "3. " << bathroom.getSink()->getName() << endl;
+        cout << "1. " << bathroom.toilet->getName() << endl;
+        cout << "2. " << bathroom.shower->getName() << endl;
+        cout << "3. " << bathroom.sink->getName() << endl;
         cout << "4. Finish" << endl;
 
         int response; 
@@ -147,11 +147,11 @@ void editBathroom(Bathroom& bathroom) {
         cout << endl;
 
         if (response == 1) {
-            bathroom.setToilet(chooseStyle()->createToilet());
+            bathroom.toilet = chooseStyle()->createToilet();
         } else if (response == 2) {
-            bathroom.setShower(chooseStyle()->createShower());
+            bathroom.shower = chooseStyle()->createShower();
         } else if (response == 3) {
-            bathroom.setSink(chooseStyle()->createSink());
+            bathroom.sink = chooseStyle()->createSink();
         } else if (response == 4) {
             break;
         }
@@ -163,9 +163,9 @@ void editKitchen(Kitchen& kitchen) {
     while (true) {
         cout << "Kitchen:" << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
-        cout << "1. " << kitchen.getStove()->getName() << endl;
-        cout << "2. " << kitchen.getOven()->getName() << endl;
-        cout << "3. " << kitchen.getCounter()->getName() << endl;
+        cout << "1. " << kitchen.stove->getName() << endl;
+        cout << "2. " << kitchen.oven->getName() << endl;
+        cout << "3. " << kitchen.counter->getName() << endl;
         cout << "4. Finish" << endl;
 
         int response;
@@ -175,13 +175,13 @@ void editKitchen(Kitchen& kitchen) {
         
         if (response == 1) {
             cout << "Stove: " << endl;
-            kitchen.setStove(chooseStyle()->createStove());
+            kitchen.stove = chooseStyle()->createStove();
         } else if (response == 2) {
             cout << "Oven: " << endl;
-            kitchen.setOven(chooseStyle()->createOven());
+            kitchen.oven = chooseStyle()->createOven();
         } else if (response == 3) {
             cout << "Counter: " << endl;
-            kitchen.setCounter(chooseStyle()->createCounter());
+            kitchen.counter = chooseStyle()->createCounter();
         } else if (response == 4) {
             break;
         }
