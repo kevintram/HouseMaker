@@ -20,5 +20,7 @@ class ReadingRoom {
 
         inline void print() {
             cout << name << endl;
+            bookshelf->print();
+            chair->print();
         }
 };
