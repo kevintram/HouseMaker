@@ -14,8 +14,7 @@ set(SOURCES
     src/menus/StyleMenu.cpp
     src/menus/BuildHouseMenu.cpp
 
-    src/furniture/Bookshelf.cpp
-    src/furniture/Closet.cpp
+    src/furniturefactories/ArtDecoFurnitureFactory.cpp
 )
 
 add_executable(HouseMaker ${SOURCES})

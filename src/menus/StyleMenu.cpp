@@ -1,6 +1,8 @@
 #include "menus/StyleMenu.h"
 #include "menus/BuildHouseMenu.h"
 #include "navigation/NavController.h"
+#include "furniturefactories/FurnitureFactory.h"
+#include "furniturefactories/ArtDecoFurnitureFactory.h"
 #include "memory"
 #include <iostream>
 
@@ -18,6 +20,12 @@ void StyleMenu::print() {
 }
 
 void StyleMenu::choose(int option) {
-    shared_ptr<BuildHouseMenu> buildHouseMenu(new BuildHouseMenu());
+    FurnitureFactory* furnitureFactory = nullptr;
+
+    if (option == 2) {
+        furnitureFactory = new ArtDecoFurnitureFactory();
+    }
+
+    shared_ptr<BuildHouseMenu> buildHouseMenu(new BuildHouseMenu(furnitureFactory));
     NavController::getInstance().navigate(buildHouseMenu);
 }

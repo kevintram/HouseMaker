@@ -1,12 +1,23 @@
 #pragma once 
 
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 class Bookshelf {
-    public: 
-        Bookshelf(string name = "Bookshelf");
-        void print();
-    private: 
+    protected: 
         string name;
+    public: 
+        inline Bookshelf(string name = "Bookshelf") {
+            this->name = name;
+        }
+        
+        inline void print() {
+            cout << name << endl;
+        }
+
+        inline string getName() const {
+            return name;
+        }
 };

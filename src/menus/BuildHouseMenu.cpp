@@ -1,7 +1,9 @@
 #include "menus/BuildHouseMenu.h"
 #include <iostream>
 
-BuildHouseMenu::BuildHouseMenu(bool isPopBackStackInclusive) : Menu(isPopBackStackInclusive) {
+BuildHouseMenu::BuildHouseMenu(FurnitureFactory* furnitureFactory, bool isPopBackStackInclusive) : Menu(isPopBackStackInclusive) {
+    this->furnitureFactory = furnitureFactory;
+
     options = vector<string>();
     options.push_back("1. Add Amenity");
     options.push_back("2. Edit Amenity");
