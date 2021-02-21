@@ -11,6 +11,7 @@ StartMenu::StartMenu(bool isPopBackStackInclusive) : Menu(isPopBackStackInclusiv
 }
 
 void StartMenu::print() {
+    cout << "Build a house or nah?" << endl;
     for (string option : options) {
         cout << option << endl;
     }
