@@ -5,11 +5,11 @@
 
 using namespace std;
 
-class Bookshelf {
+class Desk {
     protected: 
         string name;
     public: 
-        inline Bookshelf(string name = "Bookshelf") {
+        inline Desk(string name = "Desk") {
             this->name = name;
         }
         
@@ -22,12 +22,12 @@ class Bookshelf {
         }
 };
 
-class ArtDecoBookshelf : public Bookshelf {
+class ArtDecoDesk : public Desk {
     public:
-        inline ArtDecoBookshelf(string name = "Art Deco Bookshelf"): Bookshelf(name) {}
+        inline ArtDecoDesk(string name = "Art Deco Desk"): Desk(name) {}
 };
 
-class ModernBookshelf: public Bookshelf {
+class ModernDesk : public Desk {
     public:
-        inline ModernBookshelf(string name = "Modern Bookshelf") : Bookshelf(name) {}
+        inline ModernDesk(string name = "Modern Desk") : Desk(name) {}
 };
