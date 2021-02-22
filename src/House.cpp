@@ -1,5 +1,6 @@
 #include "House.h"
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -74,11 +75,21 @@ void House::print() {
 }
 
 void House::addBathroom(const shared_ptr<Bathroom>& bathroom) {
-    bathrooms.push_back(move(bathroom));
+    if (bathrooms.size() == bathroomCapacity) {
+        throw runtime_error("Error: Over bathroom capacity");
+    } else {
+        bathrooms.push_back(move(bathroom));
+    }
+
 }
 
 void House::addBedroom(const shared_ptr<Bedroom>& bedroom) {
-    bedrooms.push_back(move(bedroom));
+    if (bedrooms.size() == bedroomCapacity) {
+        throw runtime_error("Error: Over bedroom capacity");
+    } else {
+        bedrooms.push_back(move(bedroom));
+    }
+
 }
 
 void House::setGarage(const shared_ptr<Garage>& garage) {
