@@ -17,6 +17,9 @@
 #include "furniture/Toilet.h"
 #include "furniture/TV.h"
 
+/**
+ * A furniture factory for producing only Modern style furniture.
+ */
 class ModernFurnitureFactory : public FurnitureFactory {
     public: 
         inline ModernBed* createBed() {

@@ -16,7 +16,9 @@
 #include "furniture/Toilet.h"
 #include "furniture/TV.h"
 
-
+/**
+ * An abstract factory for producing furniture. 
+ */
 class FurnitureFactory {
     public: 
         virtual Bed* createBed() = 0;

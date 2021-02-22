@@ -17,6 +17,9 @@
 #include "furniture/Toilet.h"
 #include "furniture/TV.h"
 
+/**
+ * A furniture factory for only producing Art Deco style furniture.
+ */
 class ArtDecoFurnitureFactory : public FurnitureFactory {
     public:
         inline ArtDecoBed* createBed() {

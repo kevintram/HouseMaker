@@ -5,14 +5,14 @@
 #include "furniturefactories/FurnitureFactory.h"
 #include "furniturefactories/ArtDecoFurnitureFactory.h"
 #include "furniturefactories/ModernFurnitureFactory.h"
-#include "HouseBuilder.h"
+#include "GenericHouseBuilder.h"
 
 using namespace std;
 
 void start();
 void chooseHouseStyle();
 void buildHouse(FurnitureFactory& furnitureFactory);
-void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory);
+void chooseAmenity(GenericHouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory);
 
 void editBathroom(shared_ptr<Bathroom>& bathroom);
 void editBedroom(shared_ptr<Bedroom>& bedroom);
@@ -77,7 +77,7 @@ void chooseHouseStyle() {
 }
 
 void buildHouse(FurnitureFactory& furnitureFactory) {
-    HouseBuilder houseBuilder;
+    GenericHouseBuilder houseBuilder;
 
     while (true) {
         cout << "Whaddya wanna do?" << endl;
@@ -100,7 +100,7 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
 
 }
 
-void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory) {
+void chooseAmenity(GenericHouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory) {
     while (true) {
         cout << "Pick one bruh" << endl;
 

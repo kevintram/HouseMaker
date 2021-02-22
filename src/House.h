@@ -15,6 +15,9 @@
 
 using namespace std;
 
+/**
+ * A representation of a house that contains amenities.
+ */
 class House {
     public:
         House(int bathroomCapacity = 2, int bedroomCapacity = 3);

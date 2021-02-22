@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(SOURCES 
     src/HouseMaker.cpp
     src/House.cpp
-    src/HouseBuilder.cpp
+    src/GenericHouseBuilder.cpp
 )
 
 add_executable(HouseMaker ${SOURCES})
