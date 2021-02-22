@@ -15,7 +15,11 @@ void buildHouse(FurnitureFactory& furnitureFactory);
 void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory);
 
 void editBathroom(Bathroom& bathroom);
+void editBedroom(Bedroom& bedroom);
 void editKitchen(Kitchen& kitchen);
+void editLivingRoom(LivingRoom& livingRoom);
+void editOffice(Office& office);
+void editReadingRoom(ReadingRoom& readingRoom);
 
 shared_ptr<FurnitureFactory> chooseStyle();
 
@@ -97,7 +101,15 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
     while (true) {
         cout << "Pick one bruh" << endl;
         cout << "1. Bathroom" << endl;
-        cout << "2. Kitchen" <<endl;
+        cout << "2. Bedroom" << endl;
+        cout << "3. Garage" << endl;
+        cout << "4. Garden" << endl;
+        cout << "5. Kitchen" << endl;
+        cout << "6. Living Room" << endl;
+        cout << "7. Office" << endl;
+        cout << "8. Playground" << endl;
+        cout << "9. Pool" << endl;
+        cout << "10. Reading Room" << endl;
 
         int response;
         cin >> response;
@@ -117,6 +129,23 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
 
             break;
         } else if (response == 2) {
+            Bedroom bedroom;
+
+            bedroom.bed = furnitureFactory.createBed();
+            bedroom.closet = furnitureFactory.createCloset();
+
+            editBedroom(bedroom);
+
+            houseBuilder.addBedroom(bedroom);
+
+            break;
+        } else if (response == 3) {
+            houseBuilder.setGarage(Garage());
+            break;
+        } else if (response == 4) {
+            houseBuilder.setGarden(Garden());
+            break;
+        } else if (response == 5) {
             Kitchen kitchen;
 
             kitchen.counter = furnitureFactory.createCounter();
@@ -128,7 +157,45 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
             houseBuilder.setKitchen(kitchen);
 
             break;
-        }
+        } else if (response == 6) {
+            LivingRoom livingRoom;
+
+            livingRoom.coffeeTable = furnitureFactory.createCoffeeTable();
+            livingRoom.sofa = furnitureFactory.createSofa();
+            livingRoom.TV = furnitureFactory.createTV();
+
+            editLivingRoom(livingRoom);
+
+            houseBuilder.setLivingRoom(livingRoom);
+
+            break;
+        } else if (response == 7) {
+            Office office;
+
+            office.desk = furnitureFactory.createDesk();
+            office.officeChair = furnitureFactory.createOfficeChair();
+
+            editOffice(office);
+
+            houseBuilder.setOffice(office);
+
+            break;
+        } else if (response == 8) {
+            houseBuilder.setPlayground(Playground());
+            break;
+        } else if (response == 9) {
+            houseBuilder.setPool(Pool());
+            break;
+        } else if (response == 10) {
+            ReadingRoom readingRoom;
+
+            readingRoom.bookshelf = furnitureFactory.createBookshelf();
+            readingRoom.chair = furnitureFactory.createChair();
+
+            editReadingRoom(readingRoom);
+
+            break;
+        } 
     }
 }
 
@@ -153,6 +220,29 @@ void editBathroom(Bathroom& bathroom) {
         } else if (response == 3) {
             bathroom.sink = chooseStyle()->createSink();
         } else if (response == 4) {
+            break;
+        }
+    }
+}
+
+void editBedroom(Bedroom& bedroom){
+    while (true) {
+        cout << "Bedroom: " << endl;
+        cout << "Select one to change or finish it it's all good: " << endl;
+        cout << "1. " << bedroom.bed->getName() << endl;
+        cout << "2. " << bedroom.closet->getName() << endl;
+        cout << "3. Finish" << endl;
+
+        int response;
+        cin >> response;
+
+        cout << endl;
+
+        if (response == 1) {
+            bedroom.bed = chooseStyle()->createBed();
+        } else if (response == 2) {
+            bedroom.closet = chooseStyle()->createCloset();
+        } else if (response == 3) {
             break;
         }
     }
@@ -185,6 +275,79 @@ void editKitchen(Kitchen& kitchen) {
         } else if (response == 4) {
             break;
         }
+    }
+}
+
+void editLivingRoom(LivingRoom& livingRoom) {
+    while (true) {
+        cout << "Living Room: " << endl;
+        cout << "Select one to change or finish if it's all good: " << endl;
+        cout << "1. " << livingRoom.coffeeTable->getName() << endl;
+        cout << "2. " << livingRoom.sofa->getName() << endl;
+        cout << "3. " << livingRoom.TV->getName() <<endl;
+        cout << "4. Finish" << endl;
+
+        int response; 
+        cin >> response;
+
+        cout << endl;
+
+        if (response == 1) {
+            livingRoom.coffeeTable = chooseStyle()->createCoffeeTable();
+        } else if (response == 2) {
+            livingRoom.sofa = chooseStyle()->createSofa();
+        } else if (response == 3) {
+            livingRoom.TV = chooseStyle()->createTV();
+        } else if (response == 4) {
+            break;
+        }
+    }
+}
+
+void editOffice(Office& office){
+    while(true) {
+        cout << "Living Room: " << endl;
+        cout << "Select one to change or finish if it's all good: " << endl;
+        cout << "1. " << office.desk->getName() << endl;
+        cout << "2. " << office.officeChair->getName() << endl;
+        cout << "3. Finish" << endl;
+
+        int response;
+        cin >> response;
+        
+        cout << endl;
+
+        if (response == 1) {
+            office.desk = chooseStyle()->createDesk();
+        } else if (response == 2) {
+            office.officeChair = chooseStyle()->createOfficeChair();
+        } else if (response == 3) {
+            break;
+        }
+    }
+}
+
+void editReadingRoom(ReadingRoom& readingRoom){
+    while(true) {
+        cout << "Reading Room: " << endl;
+        cout << "Select one to change or finish if it's all good: " << endl;
+        cout << "1. " << readingRoom.bookshelf->getName() << endl;
+        cout << "2. " << readingRoom.chair->getName() << endl;
+        cout << "3. Finish" << endl;
+
+        int response;
+        cin >> response;
+
+        cout << endl;
+
+        if (response == 1) {
+            readingRoom.bookshelf = chooseStyle()->createBookshelf();
+        } else if (response == 2) {
+            readingRoom.chair = chooseStyle()->createChair();
+        } else if (response == 3) {
+            break;
+        } 
+        
     }
 }
 
