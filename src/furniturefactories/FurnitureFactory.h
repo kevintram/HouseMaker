@@ -1,5 +1,6 @@
 #pragma once
 
+#include "furniture/Bed.h"
 #include "furniture/Bookshelf.h"
 #include "furniture/Chair.h"
 #include "furniture/Closet.h"
@@ -18,6 +19,7 @@
 
 class FurnitureFactory {
     public: 
+        virtual Bed* createBed() = 0;
         virtual Bookshelf* createBookshelf() = 0;
         virtual Chair* createChair() = 0;
         virtual Closet* createCloset() = 0;

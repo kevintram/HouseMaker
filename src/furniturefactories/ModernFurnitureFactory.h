@@ -1,6 +1,7 @@
 #pragma once 
 
 #include "furniturefactories/FurnitureFactory.h"
+#include "furniture/Bed.h"
 #include "furniture/Bookshelf.h"
 #include "furniture/Chair.h"
 #include "furniture/Closet.h"
@@ -18,6 +19,10 @@
 
 class ModernFurnitureFactory : public FurnitureFactory {
     public: 
+        inline ModernBed* createBed() {
+            return new ModernBed();
+        }
+
         inline ModernBookshelf* createBookshelf() {
             return new ModernBookshelf();
         }
