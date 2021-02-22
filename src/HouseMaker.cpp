@@ -93,7 +93,10 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
         if (response == 1) {
             chooseAmenity(houseBuilder, furnitureFactory);
         } else if (response == 3) {
-            houseBuilder.build()->print();
+            House* house = houseBuilder.build();
+            house->print();
+            delete house;
+            break;
         }
     }
 
@@ -172,7 +175,7 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
 
             break;
         } else if (response == 7) {
-            shared_ptr<Office> office;
+            shared_ptr<Office> office(new Office());
 
             office->desk = furnitureFactory.createDesk();
             office->officeChair = furnitureFactory.createOfficeChair();
