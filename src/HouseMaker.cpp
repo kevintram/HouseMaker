@@ -44,7 +44,6 @@ void start() {
 
         if (response == 1) {
             chooseHouseStyle();
-            break;
         } else if (response == 2) {
             cout << "Bye bye" << endl;
             break;
@@ -94,6 +93,7 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
         } else if (response == 2) {
             House* house = houseBuilder.build();
             house->print();
+            cout << endl;
             break;
         }
     }
@@ -103,23 +103,53 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
 void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory) {
     while (true) {
         cout << "Pick one bruh" << endl;
-        cout << "1. Bathroom" << endl;
-        cout << "2. Bedroom" << endl;
-        cout << "3. Garage" << endl;
-        cout << "4. Garden" << endl;
-        cout << "5. Kitchen" << endl;
-        cout << "6. Living Room" << endl;
-        cout << "7. Office" << endl;
-        cout << "8. Playground" << endl;
-        cout << "9. Pool" << endl;
-        cout << "10. Reading Room" << endl;
 
+        if (houseBuilder.hasSpaceForBathroom()) {
+            cout << "1. Bathroom" << endl;
+        }
+
+        if (houseBuilder.hasSpaceForBedroom()) {
+            cout << "2. Bedroom" << endl;
+        }
+
+        if (!houseBuilder.hasGarage()) {
+            cout << "3. Garage" << endl;
+        }
+
+        if (!houseBuilder.hasGarden()) {
+            cout << "4. Garden" << endl;
+        }
+
+        if (!houseBuilder.hasLivingRoom()) {
+            cout << "5. Kitchen" << endl;
+        }
+
+        if (!houseBuilder.hasLivingRoom()) {
+            cout << "6. Living Room" << endl;
+        }
+
+        if (!houseBuilder.hasOffice()) {
+            cout << "7. Office" << endl;
+        }
+
+        if (!houseBuilder.hasPlayground()) {
+            cout << "8. Playground" << endl;
+        }
+
+        if (!houseBuilder.hasPool()) {
+            cout << "9. Pool" << endl;
+        }
+
+        if (!houseBuilder.hasReadingRoom()) {
+            cout << "10. Reading Room" << endl;
+        }
+        
         int response;
         cin >> response;
 
         cout << endl;
 
-        if (response == 1) {
+        if (response == 1 && houseBuilder.hasSpaceForBathroom()) {
             shared_ptr<Bathroom> bathroom(new Bathroom());
 
             bathroom->shower = furnitureFactory.createShower();
@@ -131,7 +161,7 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
             houseBuilder.addBathroom(bathroom);
 
             break;
-        } else if (response == 2) {
+        } else if (response == 2 && houseBuilder.hasSpaceForBedroom()) {
             shared_ptr<Bedroom> bedroom(new Bedroom());
 
             bedroom->bed = furnitureFactory.createBed();
@@ -142,13 +172,13 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
             houseBuilder.addBedroom(bedroom);
 
             break;
-        } else if (response == 3) {
+        } else if (response == 3 && !houseBuilder.hasGarage()) {
             houseBuilder.setGarage(make_shared<Garage>());
             break;
-        } else if (response == 4) {
+        } else if (response == 4 && !houseBuilder.hasGarden()) {
             houseBuilder.setGarden(make_shared<Garden>());
             break;
-        } else if (response == 5) {
+        } else if (response == 5 && !houseBuilder.hasKitchen()) {
             shared_ptr<Kitchen> kitchen(new Kitchen());
 
             kitchen->counter = furnitureFactory.createCounter();
@@ -160,7 +190,7 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
             houseBuilder.setKitchen(kitchen);
 
             break;
-        } else if (response == 6) {
+        } else if (response == 6 && !houseBuilder.hasLivingRoom()) {
             shared_ptr<LivingRoom> livingRoom(new LivingRoom());
 
             livingRoom->coffeeTable = furnitureFactory.createCoffeeTable();
@@ -172,7 +202,7 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
             houseBuilder.setLivingRoom(livingRoom);
 
             break;
-        } else if (response == 7) {
+        } else if (response == 7 && !houseBuilder.hasOffice()) {
             shared_ptr<Office> office(new Office());
 
             office->desk = furnitureFactory.createDesk();
@@ -183,13 +213,13 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
             houseBuilder.setOffice(office);
 
             break;
-        } else if (response == 8) {
+        } else if (response == 8 && !houseBuilder.hasPlayground()) {
             houseBuilder.setPlayground(make_shared<Playground>());
             break;
-        } else if (response == 9) {
+        } else if (response == 9 && !houseBuilder.hasPool()) {
             houseBuilder.setPool(make_shared<Pool>());
             break;
-        } else if (response == 10) {
+        } else if (response == 10 && !houseBuilder.hasReadingRoom()) {
             shared_ptr<ReadingRoom> readingRoom(new ReadingRoom());
 
             readingRoom->bookshelf = furnitureFactory.createBookshelf();

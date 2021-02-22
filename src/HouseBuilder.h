@@ -1,18 +1,8 @@
 #pragma once
 
-#include "House.h"
-#include "amenities/Bathroom.h"
-#include "amenities/Bedroom.h"
-#include "amenities/Garage.h"
-#include "amenities/Garden.h"
-#include "amenities/Kitchen.h"
-#include "amenities/LivingRoom.h"
-#include "amenities/Office.h"
-#include "amenities/Playground.h"
-#include "amenities/Pool.h"
-#include "amenities/ReadingRoom.h"
+#include "AbstractHouseBuilder.h"
 
-class HouseBuilder {
+class HouseBuilder : public AbstractHouseBuilder {
     public:
         HouseBuilder(int bathroomCapacity = 2, int bedroomCapacity = 3);
         ~HouseBuilder();
@@ -32,7 +22,30 @@ class HouseBuilder {
         HouseBuilder& setPool(const shared_ptr<Pool>& pool);
         HouseBuilder& setReadingRoom(const shared_ptr<ReadingRoom>& readingRoom);  
 
+        bool hasSpaceForBathroom();
+        bool hasSpaceForBedroom();
+        bool hasGarage();
+        bool hasGarden();
+        bool hasKitchen();
+        bool hasLivingRoom();
+        bool hasOffice();
+        bool hasPlayground();
+        bool hasPool();
+        bool hasReadingRoom();
+
         House* build();
-    private: 
-        House* house;
+
+    private:
+        int bathroomCapacity;
+        int bedroomCapacity;
+        int numBathrooms;
+        int numBedrooms;
+        bool m_hasGarage;
+        bool m_hasGarden;
+        bool m_hasKitchen;
+        bool m_hasLivingRoom;
+        bool m_hasOffice;
+        bool m_hasPlayground;
+        bool m_hasPool;
+        bool m_hasReadingRoom;
 };
