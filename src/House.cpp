@@ -18,7 +18,8 @@ House::House(int bathroomCapacity, int bedroomCapacity) {
 }
 
 void House::print() {
-    cout << endl << "Here is your house:" << endl;
+    cout << "===============================" << endl << endl;;
+    cout << "Here is your house!" << endl << endl;
 
     for (shared_ptr<Bathroom> bathroom : bathrooms) {
         bathroom->print();
@@ -69,6 +70,7 @@ void House::print() {
         readingRoom->print();
         cout << endl;
     }
+    cout << "===============================" << endl;
 }
 
 void House::addBathroom(const shared_ptr<Bathroom>& bathroom) {
