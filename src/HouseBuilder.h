@@ -21,16 +21,16 @@ class HouseBuilder {
 
         HouseBuilder& reset();
 
-        HouseBuilder& addBathroom(const Bathroom& bathroom);
-        HouseBuilder& addBedroom(const Bedroom& bedroom);
-        HouseBuilder& setGarage(const Garage& garage);
-        HouseBuilder& setGarden(const Garden& garden);
-        HouseBuilder& setKitchen(const Kitchen& kitchen);
-        HouseBuilder& setLivingRoom(const LivingRoom& livingRoom);
-        HouseBuilder& setOffice(const Office& office);
-        HouseBuilder& setPlayground(const Playground& playground);
-        HouseBuilder& setPool(const Pool& pool);
-        HouseBuilder& setReadingRoom(const ReadingRoom& readingRoom);  
+        HouseBuilder& addBathroom(const shared_ptr<Bathroom>& bathroom);
+        HouseBuilder& addBedroom(const shared_ptr<Bedroom>& bedroom);
+        HouseBuilder& setGarage(const shared_ptr<Garage>& garage);
+        HouseBuilder& setGarden(const shared_ptr<Garden>& garden);
+        HouseBuilder& setKitchen(const shared_ptr<Kitchen>& kitchen);
+        HouseBuilder& setLivingRoom(const shared_ptr<LivingRoom>& livingRoom);
+        HouseBuilder& setOffice(const shared_ptr<Office>& office);
+        HouseBuilder& setPlayground(const shared_ptr<Playground>& playground);
+        HouseBuilder& setPool(const shared_ptr<Pool>& pool);
+        HouseBuilder& setReadingRoom(const shared_ptr<ReadingRoom>& readingRoom);  
 
         House& build();
     private: 

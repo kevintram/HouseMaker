@@ -25,52 +25,52 @@ HouseBuilder& HouseBuilder::reset() {
     return *this;
 }
 
-HouseBuilder& HouseBuilder::addBathroom(const Bathroom& bathroom) {
+HouseBuilder& HouseBuilder::addBathroom(const shared_ptr<Bathroom>& bathroom) {
     house->addBathroom(bathroom);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::addBedroom(const Bedroom& bedroom) {
+HouseBuilder& HouseBuilder::addBedroom(const shared_ptr<Bedroom>& bedroom) {
     house->addBedroom(bedroom);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setGarage(const Garage& garage) {
+HouseBuilder& HouseBuilder::setGarage(const shared_ptr<Garage>& garage) {
     house->setGarage(garage);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setGarden(const Garden& garden) {
+HouseBuilder& HouseBuilder::setGarden(const shared_ptr<Garden>& garden) {
     house->setGarden(garden);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setKitchen(const Kitchen& kitchen) {
+HouseBuilder& HouseBuilder::setKitchen(const shared_ptr<Kitchen>& kitchen) {
     house->setKitchen(kitchen);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setLivingRoom(const LivingRoom& livingRoom) {
+HouseBuilder& HouseBuilder::setLivingRoom(const shared_ptr<LivingRoom>& livingRoom) {
     house->setLivingRoom(livingRoom);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setOffice(const Office& office) {
+HouseBuilder& HouseBuilder::setOffice(const shared_ptr<Office>& office) {
     house->setOffice(office);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setPlayground(const Playground& playground) {
+HouseBuilder& HouseBuilder::setPlayground(const shared_ptr<Playground>& playground) {
     house->setPlayground(playground);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setPool(const Pool& pool) {
+HouseBuilder& HouseBuilder::setPool(const shared_ptr<Pool>& pool) {
     house->setPool(pool);
     return *this;
 }
 
-HouseBuilder& HouseBuilder::setReadingRoom(const ReadingRoom& readingRoom) {
+HouseBuilder& HouseBuilder::setReadingRoom(const shared_ptr<ReadingRoom>& readingRoom) {
     house->setReadingRoom(readingRoom);
     return *this;
 }

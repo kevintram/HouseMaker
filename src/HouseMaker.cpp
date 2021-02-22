@@ -14,12 +14,12 @@ void chooseHouseStyle();
 void buildHouse(FurnitureFactory& furnitureFactory);
 void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactory);
 
-void editBathroom(Bathroom& bathroom);
-void editBedroom(Bedroom& bedroom);
-void editKitchen(Kitchen& kitchen);
-void editLivingRoom(LivingRoom& livingRoom);
-void editOffice(Office& office);
-void editReadingRoom(ReadingRoom& readingRoom);
+void editBathroom(shared_ptr<Bathroom>& bathroom);
+void editBedroom(shared_ptr<Bedroom>& bedroom);
+void editKitchen(shared_ptr<Kitchen>& kitchen);
+void editLivingRoom(shared_ptr<LivingRoom>& livingRoom);
+void editOffice(shared_ptr<Office>& office);
+void editReadingRoom(shared_ptr<ReadingRoom>& readingRoom);
 
 shared_ptr<FurnitureFactory> chooseStyle();
 
@@ -117,11 +117,11 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
         cout << endl;
 
         if (response == 1) {
-            Bathroom bathroom;
+            shared_ptr<Bathroom> bathroom(new Bathroom());
 
-            bathroom.shower = furnitureFactory.createShower();
-            bathroom.sink = furnitureFactory.createSink();
-            bathroom.toilet = furnitureFactory.createToilet();
+            bathroom->shower = furnitureFactory.createShower();
+            bathroom->sink = furnitureFactory.createSink();
+            bathroom->toilet = furnitureFactory.createToilet();
 
             editBathroom(bathroom);
 
@@ -129,10 +129,10 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
 
             break;
         } else if (response == 2) {
-            Bedroom bedroom;
+            shared_ptr<Bedroom> bedroom(new Bedroom());
 
-            bedroom.bed = furnitureFactory.createBed();
-            bedroom.closet = furnitureFactory.createCloset();
+            bedroom->bed = furnitureFactory.createBed();
+            bedroom->closet = furnitureFactory.createCloset();
 
             editBedroom(bedroom);
 
@@ -140,17 +140,17 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
 
             break;
         } else if (response == 3) {
-            houseBuilder.setGarage(Garage());
+            houseBuilder.setGarage(make_shared<Garage>());
             break;
         } else if (response == 4) {
-            houseBuilder.setGarden(Garden());
+            houseBuilder.setGarden(make_shared<Garden>());
             break;
         } else if (response == 5) {
-            Kitchen kitchen;
+            shared_ptr<Kitchen> kitchen(new Kitchen());
 
-            kitchen.counter = furnitureFactory.createCounter();
-            kitchen.oven = furnitureFactory.createOven();
-            kitchen.stove = furnitureFactory.createStove();
+            kitchen->counter = furnitureFactory.createCounter();
+            kitchen->oven = furnitureFactory.createOven();
+            kitchen->stove = furnitureFactory.createStove();
 
             editKitchen(kitchen);
 
@@ -158,11 +158,11 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
 
             break;
         } else if (response == 6) {
-            LivingRoom livingRoom;
+            shared_ptr<LivingRoom> livingRoom(new LivingRoom());
 
-            livingRoom.coffeeTable = furnitureFactory.createCoffeeTable();
-            livingRoom.sofa = furnitureFactory.createSofa();
-            livingRoom.TV = furnitureFactory.createTV();
+            livingRoom->coffeeTable = furnitureFactory.createCoffeeTable();
+            livingRoom->sofa = furnitureFactory.createSofa();
+            livingRoom->TV = furnitureFactory.createTV();
 
             editLivingRoom(livingRoom);
 
@@ -170,10 +170,10 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
 
             break;
         } else if (response == 7) {
-            Office office;
+            shared_ptr<Office> office;
 
-            office.desk = furnitureFactory.createDesk();
-            office.officeChair = furnitureFactory.createOfficeChair();
+            office->desk = furnitureFactory.createDesk();
+            office->officeChair = furnitureFactory.createOfficeChair();
 
             editOffice(office);
 
@@ -181,16 +181,16 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
 
             break;
         } else if (response == 8) {
-            houseBuilder.setPlayground(Playground());
+            houseBuilder.setPlayground(make_shared<Playground>());
             break;
         } else if (response == 9) {
-            houseBuilder.setPool(Pool());
+            houseBuilder.setPool(make_shared<Pool>());
             break;
         } else if (response == 10) {
-            ReadingRoom readingRoom;
+            shared_ptr<ReadingRoom> readingRoom(new ReadingRoom());
 
-            readingRoom.bookshelf = furnitureFactory.createBookshelf();
-            readingRoom.chair = furnitureFactory.createChair();
+            readingRoom->bookshelf = furnitureFactory.createBookshelf();
+            readingRoom->chair = furnitureFactory.createChair();
 
             editReadingRoom(readingRoom);
 
@@ -199,13 +199,13 @@ void chooseAmenity(HouseBuilder& houseBuilder, FurnitureFactory& furnitureFactor
     }
 }
 
-void editBathroom(Bathroom& bathroom) {
+void editBathroom(shared_ptr<Bathroom>& bathroom) {
     while (true) {
         cout << "Bathroom:" << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
-        cout << "1. " << bathroom.toilet->getName() << endl;
-        cout << "2. " << bathroom.shower->getName() << endl;
-        cout << "3. " << bathroom.sink->getName() << endl;
+        cout << "1. " << bathroom->toilet->getName() << endl;
+        cout << "2. " << bathroom->shower->getName() << endl;
+        cout << "3. " << bathroom->sink->getName() << endl;
         cout << "4. Finish" << endl;
 
         int response; 
@@ -214,23 +214,23 @@ void editBathroom(Bathroom& bathroom) {
         cout << endl;
 
         if (response == 1) {
-            bathroom.toilet = chooseStyle()->createToilet();
+            bathroom->toilet = chooseStyle()->createToilet();
         } else if (response == 2) {
-            bathroom.shower = chooseStyle()->createShower();
+            bathroom->shower = chooseStyle()->createShower();
         } else if (response == 3) {
-            bathroom.sink = chooseStyle()->createSink();
+            bathroom->sink = chooseStyle()->createSink();
         } else if (response == 4) {
             break;
         }
     }
 }
 
-void editBedroom(Bedroom& bedroom){
+void editBedroom(shared_ptr<Bedroom>& bedroom){
     while (true) {
         cout << "Bedroom: " << endl;
         cout << "Select one to change or finish it it's all good: " << endl;
-        cout << "1. " << bedroom.bed->getName() << endl;
-        cout << "2. " << bedroom.closet->getName() << endl;
+        cout << "1. " << bedroom->bed->getName() << endl;
+        cout << "2. " << bedroom->closet->getName() << endl;
         cout << "3. Finish" << endl;
 
         int response;
@@ -239,9 +239,9 @@ void editBedroom(Bedroom& bedroom){
         cout << endl;
 
         if (response == 1) {
-            bedroom.bed = chooseStyle()->createBed();
+            bedroom->bed = chooseStyle()->createBed();
         } else if (response == 2) {
-            bedroom.closet = chooseStyle()->createCloset();
+            bedroom->closet = chooseStyle()->createCloset();
         } else if (response == 3) {
             break;
         }
@@ -249,13 +249,13 @@ void editBedroom(Bedroom& bedroom){
 }
 
 
-void editKitchen(Kitchen& kitchen) {
+void editKitchen(shared_ptr<Kitchen>& kitchen) {
     while (true) {
         cout << "Kitchen:" << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
-        cout << "1. " << kitchen.stove->getName() << endl;
-        cout << "2. " << kitchen.oven->getName() << endl;
-        cout << "3. " << kitchen.counter->getName() << endl;
+        cout << "1. " << kitchen->stove->getName() << endl;
+        cout << "2. " << kitchen->oven->getName() << endl;
+        cout << "3. " << kitchen->counter->getName() << endl;
         cout << "4. Finish" << endl;
 
         int response;
@@ -265,26 +265,26 @@ void editKitchen(Kitchen& kitchen) {
         
         if (response == 1) {
             cout << "Stove: " << endl;
-            kitchen.stove = chooseStyle()->createStove();
+            kitchen->stove = chooseStyle()->createStove();
         } else if (response == 2) {
             cout << "Oven: " << endl;
-            kitchen.oven = chooseStyle()->createOven();
+            kitchen->oven = chooseStyle()->createOven();
         } else if (response == 3) {
             cout << "Counter: " << endl;
-            kitchen.counter = chooseStyle()->createCounter();
+            kitchen->counter = chooseStyle()->createCounter();
         } else if (response == 4) {
             break;
         }
     }
 }
 
-void editLivingRoom(LivingRoom& livingRoom) {
+void editLivingRoom(shared_ptr<LivingRoom>& livingRoom) {
     while (true) {
         cout << "Living Room: " << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
-        cout << "1. " << livingRoom.coffeeTable->getName() << endl;
-        cout << "2. " << livingRoom.sofa->getName() << endl;
-        cout << "3. " << livingRoom.TV->getName() <<endl;
+        cout << "1. " << livingRoom->coffeeTable->getName() << endl;
+        cout << "2. " << livingRoom->sofa->getName() << endl;
+        cout << "3. " << livingRoom->TV->getName() <<endl;
         cout << "4. Finish" << endl;
 
         int response; 
@@ -293,23 +293,23 @@ void editLivingRoom(LivingRoom& livingRoom) {
         cout << endl;
 
         if (response == 1) {
-            livingRoom.coffeeTable = chooseStyle()->createCoffeeTable();
+            livingRoom->coffeeTable = chooseStyle()->createCoffeeTable();
         } else if (response == 2) {
-            livingRoom.sofa = chooseStyle()->createSofa();
+            livingRoom->sofa = chooseStyle()->createSofa();
         } else if (response == 3) {
-            livingRoom.TV = chooseStyle()->createTV();
+            livingRoom->TV = chooseStyle()->createTV();
         } else if (response == 4) {
             break;
         }
     }
 }
 
-void editOffice(Office& office){
+void editOffice(shared_ptr<Office>& office){
     while(true) {
         cout << "Living Room: " << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
-        cout << "1. " << office.desk->getName() << endl;
-        cout << "2. " << office.officeChair->getName() << endl;
+        cout << "1. " << office->desk->getName() << endl;
+        cout << "2. " << office->officeChair->getName() << endl;
         cout << "3. Finish" << endl;
 
         int response;
@@ -318,21 +318,21 @@ void editOffice(Office& office){
         cout << endl;
 
         if (response == 1) {
-            office.desk = chooseStyle()->createDesk();
+            office->desk = chooseStyle()->createDesk();
         } else if (response == 2) {
-            office.officeChair = chooseStyle()->createOfficeChair();
+            office->officeChair = chooseStyle()->createOfficeChair();
         } else if (response == 3) {
             break;
         }
     }
 }
 
-void editReadingRoom(ReadingRoom& readingRoom){
+void editReadingRoom(shared_ptr<ReadingRoom>& readingRoom){
     while(true) {
         cout << "Reading Room: " << endl;
         cout << "Select one to change or finish if it's all good: " << endl;
-        cout << "1. " << readingRoom.bookshelf->getName() << endl;
-        cout << "2. " << readingRoom.chair->getName() << endl;
+        cout << "1. " << readingRoom->bookshelf->getName() << endl;
+        cout << "2. " << readingRoom->chair->getName() << endl;
         cout << "3. Finish" << endl;
 
         int response;
@@ -341,9 +341,9 @@ void editReadingRoom(ReadingRoom& readingRoom){
         cout << endl;
 
         if (response == 1) {
-            readingRoom.bookshelf = chooseStyle()->createBookshelf();
+            readingRoom->bookshelf = chooseStyle()->createBookshelf();
         } else if (response == 2) {
-            readingRoom.chair = chooseStyle()->createChair();
+            readingRoom->chair = chooseStyle()->createChair();
         } else if (response == 3) {
             break;
         } 
