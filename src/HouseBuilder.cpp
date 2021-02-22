@@ -1,7 +1,7 @@
 #include "HouseBuilder.h"
 
-HouseBuilder::HouseBuilder() {
-    house = new House();
+HouseBuilder::HouseBuilder(int bathroomCapacity = 2, int bedroomCapacity = 3) {
+    house = new House(bathroomCapacity, bedroomCapacity);
 }
 
 HouseBuilder::~HouseBuilder() {

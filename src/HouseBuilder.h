@@ -14,7 +14,7 @@
 
 class HouseBuilder {
     public:
-        HouseBuilder();
+        HouseBuilder(int bathroomCapacity = 2, int bedroomCapacity = 3);
         ~HouseBuilder();
         HouseBuilder(const HouseBuilder& other);
         HouseBuilder& operator=(const HouseBuilder& other);
