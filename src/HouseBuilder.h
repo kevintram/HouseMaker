@@ -32,7 +32,7 @@ class HouseBuilder {
         HouseBuilder& setPool(const shared_ptr<Pool>& pool);
         HouseBuilder& setReadingRoom(const shared_ptr<ReadingRoom>& readingRoom);  
 
-        House& build();
+        House* build();
     private: 
         House* house;
 };

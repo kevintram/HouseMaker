@@ -92,6 +92,8 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
         cout << endl;
         if (response == 1) {
             chooseAmenity(houseBuilder, furnitureFactory);
+        } else if (response == 3) {
+            houseBuilder.build()->print();
         }
     }
 

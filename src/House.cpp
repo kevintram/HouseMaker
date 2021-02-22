@@ -18,8 +18,56 @@ House::House(int bathroomCapacity, int bedroomCapacity) {
 }
 
 void House::print() {
-    for (int i = 0; i < bathrooms.size(); i++) {
-        bathrooms[i]->print();
+    cout << endl << "Here is your house:" << endl;
+
+    for (shared_ptr<Bathroom> bathroom : bathrooms) {
+        bathroom->print();
+        cout << endl;
+    }
+
+    for (shared_ptr<Bedroom> bedroom : bedrooms) {
+        bedroom->print();
+        cout << endl;
+    }
+
+    if (garage != nullptr) {
+        garage->print();
+        cout << endl;
+    }
+
+    if (garden != nullptr) {
+        garden->print();
+        cout << endl;
+    }
+
+    if (kitchen != nullptr) {
+        kitchen->print();
+        cout << endl;
+    }
+
+    if (livingRoom != nullptr) {
+        livingRoom->print();
+        cout << endl;
+    }
+
+    if (office != nullptr) {
+        office->print();
+        cout << endl;
+    }
+
+    if (playground != nullptr) {
+        playground->print();
+        cout << endl;
+    }
+
+    if (pool != nullptr) {
+        pool->print();
+        cout << endl;
+    }
+
+    if (readingRoom != nullptr) {
+        readingRoom->print();
+        cout << endl;
     }
 }
 

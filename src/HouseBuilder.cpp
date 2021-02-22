@@ -74,3 +74,7 @@ HouseBuilder& HouseBuilder::setReadingRoom(const shared_ptr<ReadingRoom>& readin
     house->setReadingRoom(readingRoom);
     return *this;
 }
+
+House* HouseBuilder::build() {
+    return house;
+}
