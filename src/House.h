@@ -16,7 +16,7 @@
 using namespace std;
 
 /**
- * A representation of a house that contains amenities.
+ * A house that contains amenities.
  */
 class House {
     public:
