@@ -94,7 +94,6 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
         } else if (response == 2) {
             House* house = houseBuilder.build();
             house->print();
-            delete house;
             break;
         }
     }
