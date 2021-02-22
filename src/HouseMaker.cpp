@@ -83,8 +83,7 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
     while (true) {
         cout << "Whaddya wanna do?" << endl;
         cout << "1. Add Amenity" << endl;
-        cout << "2. Edit Amenity" << endl;
-        cout << "3. Finish House" << endl;
+        cout << "2. Finish House" << endl;
 
         int response;
         cin >> response;
@@ -92,7 +91,7 @@ void buildHouse(FurnitureFactory& furnitureFactory) {
         cout << endl;
         if (response == 1) {
             chooseAmenity(houseBuilder, furnitureFactory);
-        } else if (response == 3) {
+        } else if (response == 2) {
             House* house = houseBuilder.build();
             house->print();
             delete house;
