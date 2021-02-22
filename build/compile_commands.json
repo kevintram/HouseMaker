@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/Users/kevintram/C++Projects/HouseMaker/build",
+  "command": "/usr/bin/clang++  -I/Users/kevintram/C++Projects/HouseMaker/src -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -std=gnu++11 -o CMakeFiles/HouseMaker.dir/src/HouseMaker.cpp.o -c /Users/kevintram/C++Projects/HouseMaker/src/HouseMaker.cpp",
+  "file": "/Users/kevintram/C++Projects/HouseMaker/src/HouseMaker.cpp"
+},
+{
+  "directory": "/Users/kevintram/C++Projects/HouseMaker/build",
+  "command": "/usr/bin/clang++  -I/Users/kevintram/C++Projects/HouseMaker/src -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -std=gnu++11 -o CMakeFiles/HouseMaker.dir/src/House.cpp.o -c /Users/kevintram/C++Projects/HouseMaker/src/House.cpp",
+  "file": "/Users/kevintram/C++Projects/HouseMaker/src/House.cpp"
+},
+{
+  "directory": "/Users/kevintram/C++Projects/HouseMaker/build",
+  "command": "/usr/bin/clang++  -I/Users/kevintram/C++Projects/HouseMaker/src -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -std=gnu++11 -o CMakeFiles/HouseMaker.dir/src/GenericHouseBuilder.cpp.o -c /Users/kevintram/C++Projects/HouseMaker/src/GenericHouseBuilder.cpp",
+  "file": "/Users/kevintram/C++Projects/HouseMaker/src/GenericHouseBuilder.cpp"
+}
+]
